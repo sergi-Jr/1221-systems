@@ -2,8 +2,14 @@ server:
   tomcat:
     accesslog:
       enabled: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema-psql.sql
   spring:
     jpa:
+      hibernate:
+        ddl-auto: update
       properties:
         hibernate:
           dialect: org:hibernate:dialect:PostgreSQLDialect

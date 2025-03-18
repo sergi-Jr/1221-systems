@@ -14,6 +14,6 @@ CREATE TABLE users (
 
 ALTER TABLE users ADD CONSTRAINT uc_users_email UNIQUE (email);
 
-INSERT INTO users (id, name, email, age, weight, height, goal, daily_rate) VALUES (RANDOM_UUID(), 'test1', 'test1@mail.ru', 10, 35.5, 140, 'MAINTENANCE', 100);
-INSERT INTO users (id, name, email, age, weight, height, goal, daily_rate) VALUES (RANDOM_UUID(), 'test2', 'test2@mail.ru', 30, 100, 180, 'GAIN', 100);
-INSERT INTO users (id, name, email, age, weight, height, goal, daily_rate) VALUES (RANDOM_UUID(), 'test3', 'test3@mail.ru', 28, 80, 190, 'SLIMMING', 100);
+INSERT INTO users (id, name, email, age, weight, height, goal, daily_rate) VALUES (:uuid_generate_v4(), 'test1', 'test1@mail.ru', 10, 35.5, 140, 'MAINTENANCE', 100);
+INSERT INTO users (id, name, email, age, weight, height, goal, daily_rate) VALUES (:uuid_generate_v4(), 'test2', 'test2@mail.ru', 30, 100, 180, 'GAIN', 100);
+INSERT INTO users (id, name, email, age, weight, height, goal, daily_rate) VALUES (:uuid_generate_v4(), 'test3', 'test3@mail.ru', 28, 80, 190, 'SLIMMING', 100);
