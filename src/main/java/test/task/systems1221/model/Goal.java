@@ -1,4 +1,4 @@
-package test.task.systems1221;
+package test.task.systems1221.model;
 
 import lombok.Getter;
 
