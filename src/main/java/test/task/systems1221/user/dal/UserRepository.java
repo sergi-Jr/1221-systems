@@ -1,4 +1,9 @@
-package test.task.systems1221.user.model;
+package test.task.systems1221.user.dal;
 
-public interface UserRepository extends org.springframework.data.jpa.repository.JpaRepository<test.task.systems1221.user.model.User, java.util.UUID> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import test.task.systems1221.user.model.User;
+
+import java.util.UUID;
+
+public interface UserRepository extends JpaRepository<User, UUID> {
 }
