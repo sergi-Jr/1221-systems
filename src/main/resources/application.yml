@@ -1,6 +1,13 @@
-spring.application.name=1221-systems
-spring.profiles.default=dev
-spring.jpa.generate-ddl=true
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=update
-spring.output.ansi.enabled=always
+spring:
+  application:
+  name: 1221-systems
+  profiles:
+    default: dev
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  output:
+    ansi:
+      enabled: always

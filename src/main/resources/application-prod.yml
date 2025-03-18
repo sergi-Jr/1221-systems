@@ -1,8 +1,17 @@
-server.tomcat.accesslog.enabled=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-spring.datasource.url=${JDBC_DATABASE_URL}
-spring.datasource.username=${USERNAME}
-spring.datasource.password=${PASSWORD}
-spring.datasource.driver-class-name=org.postgresql.Driver
-
-logging.level.root=WARN
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+  spring:
+    jpa:
+      properties:
+        hibernate:
+          dialect: org:hibernate:dialect:PostgreSQLDialect
+    datasource:
+      url: ${JDBC_DATABASE_URL}
+      username: ${USERNAME}
+      password: ${PASSWORD}
+  
+  logging:
+    level:
+      root: WARN
