@@ -5,9 +5,6 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-/**
- * DTO for {@link test.task.systems1221.dish.model.Dish}
- */
 @Getter
 @Setter
 public class DishDto {
