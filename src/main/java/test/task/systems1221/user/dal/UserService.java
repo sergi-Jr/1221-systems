@@ -64,12 +64,11 @@ public class UserService {
     }
 
     @Transactional
-    public UserDto delete(UUID id) {
+    public void delete(UUID id) {
         User user = userRepository.findById(id).orElse(null);
         if (user != null) {
             userRepository.delete(user);
         }
-        return userMapper.toUserDto(user);
     }
 
     @Transactional

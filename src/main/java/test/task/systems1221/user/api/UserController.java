@@ -61,8 +61,8 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public UserDto delete(@PathVariable UUID id) {
-        return userService.delete(id);
+    public void delete(@PathVariable UUID id) {
+        userService.delete(id);
     }
 
     @DeleteMapping
