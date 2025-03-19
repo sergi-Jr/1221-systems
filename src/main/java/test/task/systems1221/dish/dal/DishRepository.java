@@ -1,4 +1,9 @@
 package test.task.systems1221.dish.dal;
 
-public interface DishRepository extends org.springframework.data.jpa.repository.JpaRepository<test.task.systems1221.dish.model.Dish, java.util.UUID> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import test.task.systems1221.dish.model.Dish;
+
+import java.util.UUID;
+
+public interface DishRepository extends JpaRepository<Dish, UUID> {
 }
