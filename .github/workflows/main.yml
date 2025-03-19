@@ -20,7 +20,8 @@ jobs:
           gradle-version: 8.5
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1.3.0
-        with:
+        env:
           api-token: ${{ secrets.CODACY_API_TOKEN }}
+        with:
           coverageCommand: make report
           coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
