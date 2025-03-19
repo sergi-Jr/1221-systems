@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import test.task.systems1221.model.Goal;
 import test.task.systems1221.model.Sex;
 import test.task.systems1221.user.model.User;
-import test.task.systems1221.utils.EntityGenerator;
 import test.task.systems1221.utils.SimpleCalorieCalculator;
 
 
