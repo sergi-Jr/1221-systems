@@ -39,7 +39,7 @@ public class Dish {
     private int carbohydrate;
 
     @ToString.Include
-    String Pfc() {
+    String pfc() {
         return "%d/%d/%d".formatted(getProtein(), getFat(), getCarbohydrate());
     }
 
@@ -66,6 +66,8 @@ public class Dish {
 
     @Override
     public final int hashCode() {
-        return this instanceof HibernateProxy proxy ? proxy.getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+        return this instanceof HibernateProxy proxy
+                ? proxy.getHibernateLazyInitializer().getPersistentClass().hashCode()
+                : getClass().hashCode();
     }
 }
