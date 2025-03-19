@@ -6,9 +6,9 @@ import test.task.systems1221.user.model.User;
 
 @ConfigurationProperties(prefix = "user.suggestion")
 public class SimpleCalorieCalculator {
-    private static float slim = 0.75f;
+    private static float slim = 0.85f;
     private static int main = 1;
-    private static float gain = 1.25f;
+    private static float gain = 1.15f;
 
     public static int calories(User user) {
         switch (user.getGoal()) {

@@ -16,6 +16,6 @@ spring:
 user:
   floatPrecision: 0.01f
   suggestion:
-    slim: 0.75f
+    slim: 0.15f
     main: 1
-    gain: 1.25f
+    gain: 1.15f
