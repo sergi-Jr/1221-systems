@@ -3,12 +3,10 @@ package test.task.systems1221.user.dto;
 import lombok.Getter;
 import lombok.Setter;
 import test.task.systems1221.model.Goal;
+import test.task.systems1221.model.Sex;
 
 import java.util.UUID;
 
-/**
- * DTO for {@link test.task.systems1221.user.model.User}
- */
 @Getter
 @Setter
 public class UserDto {
@@ -16,8 +14,9 @@ public class UserDto {
     private String name;
     private String email;
     private int age;
-    private float weight;
-    private float height;
+    private int weight;
+    private int height;
     private Goal goal;
     private int dailyRate;
+    private Sex sex;
 }

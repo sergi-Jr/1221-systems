@@ -7,31 +7,29 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
+import org.openapitools.jackson.nullable.JsonNullable;
 import test.task.systems1221.model.Goal;
 
-/**
- * DTO for {@link test.task.systems1221.user.model.User}
- */
 @Getter
 @Setter
 public class UserUpdateDto {
     @Size(min = 1, max = 32)
     @NotBlank(message = "Field cannot be empty")
-    private String name;
+    private JsonNullable<String> name;
 
     @Email(message = "Wrong email format",
-            regexp = "^[a-zA-Z0-9_+&*-] + (?:\\\\.[a-zA-Z0-9_+&*-] + )*@(?:[a-zA-Z0-9-]+\\\\.) + [a-zA-Z]{2,7}")
-    private String email;
+            regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
+    private JsonNullable<String> email;
 
     @Positive
     @Range(max = 120)
-    private int age;
+    private JsonNullable<Integer> age;
 
     @Positive
-    private float weight;
+    private JsonNullable<Integer> weight;
 
     @Positive
-    private float height;
+    private JsonNullable<Integer> height;
 
-    private Goal goal;
+    private JsonNullable<Goal> goal;
 }

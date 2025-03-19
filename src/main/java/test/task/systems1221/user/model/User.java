@@ -14,6 +14,7 @@ import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
 import test.task.systems1221.model.BaseEntity;
 import test.task.systems1221.model.Goal;
+import test.task.systems1221.model.Sex;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -42,34 +43,51 @@ public class User implements BaseEntity {
 
     @Column(nullable = false)
     @ToString.Include
-    private float weight;
+    private int weight;
 
     @Column(nullable = false)
     @ToString.Include
-    private float height;
+    private int height;
 
     @Enumerated(EnumType.STRING)
     @ToString.Include
     @Column(nullable = false, name = "goal")
     private Goal goal;
 
+    @Enumerated(EnumType.STRING)
+    @ToString.Include
+    @Column(nullable = false, name = "sex")
+    private Sex sex;
+
     @ToString.Include
     private int dailyRate;
 
     @Override
     public final boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null) return false;
-        Class<?> oEffectiveClass = o instanceof HibernateProxy proxy ? proxy.getHibernateLazyInitializer().getPersistentClass() : o.getClass();
-        Class<?> thisEffectiveClass = this instanceof HibernateProxy proxy ? proxy.getHibernateLazyInitializer().getPersistentClass() : this.getClass();
-        if (thisEffectiveClass != oEffectiveClass) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        Class<?> oEffectiveClass = o instanceof HibernateProxy proxy
+                ? proxy.getHibernateLazyInitializer().getPersistentClass()
+                : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy proxy
+                ? proxy.getHibernateLazyInitializer().getPersistentClass()
+                : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) {
+            return false;
+        }
         User user = (User) o;
         return getId() != null && Objects.equals(getId(), user.getId());
     }
 
     @Override
     public final int hashCode() {
-        return this instanceof HibernateProxy proxy ? proxy.getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+        return this instanceof HibernateProxy proxy
+                ? proxy.getHibernateLazyInitializer().getPersistentClass().hashCode()
+                : getClass().hashCode();
     }
 }
 

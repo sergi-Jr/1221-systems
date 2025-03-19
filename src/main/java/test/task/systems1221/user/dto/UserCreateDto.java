@@ -8,10 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 import test.task.systems1221.model.Goal;
+import test.task.systems1221.model.Sex;
 
-/**
- * DTO for {@link test.task.systems1221.user.model.User}
- */
 @Getter
 @Setter
 public class UserCreateDto {
@@ -20,7 +18,7 @@ public class UserCreateDto {
     private String name;
 
     @Email(message = "Wrong email format",
-            regexp = "^[a-zA-Z0-9_+&*-] + (?:\\\\.[a-zA-Z0-9_+&*-] + )*@(?:[a-zA-Z0-9-]+\\\\.) + [a-zA-Z]{2,7}")
+            regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
     private String email;
 
     @Positive
@@ -28,10 +26,12 @@ public class UserCreateDto {
     private int age;
 
     @Positive
-    private float weight;
+    private int weight;
 
     @Positive
-    private float height;
+    private int height;
 
     private Goal goal;
+
+    private Sex sex;
 }

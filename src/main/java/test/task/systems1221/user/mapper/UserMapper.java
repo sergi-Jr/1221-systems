@@ -21,9 +21,9 @@ import test.task.systems1221.user.model.User;
 public abstract class UserMapper {
     public abstract User toEntity(UserCreateDto userCreateDto);
 
-    abstract User toEntity(UserUpdateDto userUpdateDto);
-
     public abstract UserDto toUserDto(User user);
 
-    public abstract User updateWithNull(UserDto userDto, @MappingTarget User user);
+    public abstract void updateWithNull(UserUpdateDto userDto, @MappingTarget User user);
+
+    public abstract UserCreateDto mapToCreateDTO(User model);
 }
