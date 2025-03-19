@@ -1,22 +1,17 @@
 package test.task.systems1221.user.dal;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
+import test.task.systems1221.exception.ResourceNotFoundException;
 import test.task.systems1221.user.dto.UserCreateDto;
 import test.task.systems1221.user.dto.UserDto;
 import test.task.systems1221.user.dto.UserUpdateDto;
 import test.task.systems1221.user.mapper.UserMapper;
 import test.task.systems1221.user.model.User;
 
-import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -38,7 +33,7 @@ public class UserService {
     public UserDto getOne(UUID id) {
         Optional<User> userOptional = userRepository.findById(id);
         return userMapper.toUserDto(userOptional.orElseThrow(() ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity with id `%s` not found".formatted(id))));
+                new ResourceNotFoundException("Entity with id `%s` not found".formatted(id))));
     }
 
     public List<UserDto> getMany(List<UUID> ids) {
@@ -48,23 +43,25 @@ public class UserService {
                 .toList();
     }
 
+    @Transactional
     public UserDto create(UserCreateDto dto) {
         User user = userMapper.toEntity(dto);
         User resultUser = userRepository.save(user);
         return userMapper.toUserDto(resultUser);
     }
 
+    @Transactional
     public UserDto patch(UUID id, UserUpdateDto userUpdateDto) {
         User user = userRepository.findById(id).orElseThrow(() ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity with id `%s` not found".formatted(id)));
+                new ResourceNotFoundException("Entity with id `%s` not found".formatted(id)));
 
-        UserDto userDto = userMapper.toUserDto(user);
-        userMapper.updateWithNull(userDto, user);
+        userMapper.updateWithNull(userUpdateDto, user);
 
         User resultUser = userRepository.save(user);
         return userMapper.toUserDto(resultUser);
     }
 
+    @Transactional
     public UserDto delete(UUID id) {
         User user = userRepository.findById(id).orElse(null);
         if (user != null) {
@@ -73,6 +70,7 @@ public class UserService {
         return userMapper.toUserDto(user);
     }
 
+    @Transactional
     public void deleteMany(List<UUID> ids) {
         userRepository.deleteAllById(ids);
     }
