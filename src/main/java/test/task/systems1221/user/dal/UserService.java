@@ -11,6 +11,7 @@ import test.task.systems1221.user.dto.UserDto;
 import test.task.systems1221.user.dto.UserUpdateDto;
 import test.task.systems1221.user.mapper.UserMapper;
 import test.task.systems1221.user.model.User;
+import test.task.systems1221.utils.SimpleCalorieCalculator;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,6 +47,7 @@ public class UserService {
     @Transactional
     public UserDto create(UserCreateDto dto) {
         User user = userMapper.toEntity(dto);
+        user.setDailyRate(SimpleCalorieCalculator.calories(user));
         User resultUser = userRepository.save(user);
         return userMapper.toUserDto(resultUser);
     }
