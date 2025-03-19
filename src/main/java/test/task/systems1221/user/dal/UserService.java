@@ -58,7 +58,7 @@ public class UserService {
                 new ResourceNotFoundException("Entity with id `%s` not found".formatted(id)));
 
         userMapper.updateWithNull(userUpdateDto, user);
-
+        user.setDailyRate(SimpleCalorieCalculator.calories(user));
         User resultUser = userRepository.save(user);
         return userMapper.toUserDto(resultUser);
     }
