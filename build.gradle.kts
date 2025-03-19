@@ -37,6 +37,8 @@ dependencies {
     implementation("org.openapitools:jackson-databind-nullable:0.2.6")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    implementation("net.datafaker:datafaker:2.2.2")
+    implementation("org.instancio:instancio-junit:4.8.0")
 
     compileOnly("org.projectlombok:lombok")
     compileOnly("org.projectlombok:lombok:1.18.32")
@@ -44,6 +46,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("com.h2database:h2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testCompileOnly("org.projectlombok:lombok")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
