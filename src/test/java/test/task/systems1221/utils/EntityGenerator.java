@@ -1,0 +1,32 @@
+package test.task.systems1221.utils;
+
+import lombok.RequiredArgsConstructor;
+import net.datafaker.Faker;
+import org.instancio.Instancio;
+import org.springframework.stereotype.Component;
+import test.task.systems1221.model.Goal;
+import test.task.systems1221.model.Sex;
+import test.task.systems1221.user.model.User;
+
+
+import static org.instancio.Select.field;
+
+@Component
+@RequiredArgsConstructor
+public class EntityGenerator {
+    private final Faker faker;
+
+    public User user() {
+        return Instancio.of(User.class)
+                .ignore(field(User::getId))
+                .ignore(field(User::getDailyRate))
+                .supply(field(User::getName), () -> faker.name().firstName())
+                .supply(field(User::getEmail), () -> faker.internet().emailAddress())
+                .supply(field(User::getAge), () -> faker.number().numberBetween(12, 100))
+                .supply(field(User::getWeight), () -> faker.number().numberBetween(30, 300))
+                .supply(field(User::getHeight), () -> faker.number().numberBetween(110, 250))
+                .supply(field(User::getGoal), () -> Goal.MAINTENANCE)
+                .supply(field(User::getSex), () -> Sex.MALE)
+                .create();
+    }
+}
