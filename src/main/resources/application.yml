@@ -12,3 +12,6 @@ spring:
   output:
     ansi:
       enabled: always
+
+user:
+  floatPrecision: 0.01f
