@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
+import test.task.systems1221.model.BaseEntity;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -19,7 +20,7 @@ import java.util.UUID;
 @ToString(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
-public class Dish {
+public class Dish implements BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
