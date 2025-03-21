@@ -21,6 +21,7 @@ public class EntityGenerator {
         return Instancio.of(User.class)
                 .ignore(field(User::getId))
                 .ignore(field(User::getDailyRate))
+                .ignore(field(User::getMeals))
                 .supply(field(User::getName), () -> faker.name().firstName())
                 .supply(field(User::getEmail), () -> faker.internet().emailAddress())
                 .supply(field(User::getAge), () -> faker.number().numberBetween(12, 100))

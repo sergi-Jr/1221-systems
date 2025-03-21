@@ -84,7 +84,7 @@ public class UserControllerTest {
         assertThat(preActual).isNotNull();
         User actual = preActual.get();
         assertThat(actual).usingRecursiveComparison()
-                .ignoringFields("id", "dailyRate")
+                .ignoringFields("id", "dailyRate", "meals")
                 .isEqualTo(newUser);
     }
 
