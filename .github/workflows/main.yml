@@ -34,9 +34,7 @@ jobs:
           arguments: build
           gradle-version: 8.5
         env:
-          DB_HOST: localhost
-          DB_PORT: 5432
-          DB_NAME: mydatabase
-          DB_USERNAME: myuser
-          DB_PASSWORD: mypassword
+          JDBC_DATABASE_URL: jdbc:postgresql://localhost:5432/mydatabase
+          USERNAME: myuser
+          PASSWORD: mypassword
           SPRING_PROFILES_ACTIVE: prod
