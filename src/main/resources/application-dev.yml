@@ -9,10 +9,6 @@ spring:
   h2:
     console:
       enabled: true
-  sql:
-    init:
-      mode: always
-      schema-locations: classpath:schema-h2.sql
 
 debug: true
 logging:
