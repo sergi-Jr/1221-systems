@@ -39,6 +39,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("net.datafaker:datafaker:2.2.2")
     implementation("org.instancio:instancio-junit:4.8.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0")
 
     compileOnly("org.projectlombok:lombok")
     compileOnly("org.projectlombok:lombok:1.18.32")
