@@ -4,6 +4,11 @@ spring:
   profiles:
     default: dev
   jpa:
+    properties:
+      hibernate:
+        event:
+          merge:
+            entity_copy_observer: allow
     generate-ddl: true
     show-sql: true
     hibernate:
